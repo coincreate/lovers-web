@@ -5,10 +5,10 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-<meta name="description" content="Eternity Wall, messages lasting forever.">
+<meta name="description" content="三生三世, messages lasting forever.">
 <meta name="author" content="Riccardo Casatta @RCasatta">
-<meta name="apple-mobile-web-app-title" content="Eternity Wall">
-<meta name="application-name" content="Eternity Wall">
+<meta name="apple-mobile-web-app-title" content="三生三世">
+<meta name="application-name" content="三生三世">
 <meta name="msapplication-TileColor" content="#00aba9">
 <meta name="msapplication-TileImage" content="/mstile-144x144.png">
 <meta name="theme-color" content="#ffffff">
