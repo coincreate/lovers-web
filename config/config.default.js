@@ -15,6 +15,9 @@ module.exports = appInfo => {
       path.join(appInfo.baseDir, 'app/view'),
     ].join(',')
   };
+  config.static = {
+    
+  }
 
   return config;
 };
