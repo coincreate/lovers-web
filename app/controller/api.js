@@ -4,6 +4,7 @@ const LoverSchema = require('../db/lover')
 const moment = require('moment')
 
 const Controller = require('egg').Controller;
+const BatchSize = 30
 
 class ApiController extends Controller {
   async getRecords() {
@@ -12,7 +13,7 @@ class ApiController extends Controller {
     startCursor = parseInt(startCursor) || 0
     // this.ctx.body = 'hi, egg';
     const model = LoverSchema.model()
-    const loveRecords = await model.find({rankAmount:{$lt:startCursor}}).sort('-rankAmount').limit(30).lean().exec()
+    const loveRecords = await model.find({rankAmount:{$lt:startCursor}}).sort('-rankAmount').limit(BatchSize).lean().exec()
     console.log(`loveRecords=`, loveRecords)
     //can't move this filter condition into above match condition
     
@@ -32,9 +33,13 @@ class ApiController extends Controller {
       ctx.body = {data:[],startCursor:-1}
       return
     }
+    let newStartCursor = 0
+    if (loveRecords.length >= BatchSize) {
+      newStartCursor = loveRecords[loveRecords.length - 1].rankAmount
+    }
     ctx.body = {
       data: newRecords,
-      startCursor: newRecords[newRecords.length-1].rankAmount
+      startCursor:newStartCursor,
     }
   }
 }

@@ -5,13 +5,14 @@ const LoverSchema = require('../db/lover')
 const moment = require('moment')
 
 const Controller = require('egg').Controller;
+const BatchSize = 30
 
 class HomeController extends Controller {
   async index() {
     const ctx = this.ctx;
     // this.ctx.body = 'hi, egg';
     const model = LoverSchema.model()
-    const loveRecords = await model.find().sort('-rankAmount').limit(30).lean().exec()
+    const loveRecords = await model.find().sort('-rankAmount').limit(BatchSize).lean().exec()
     // console.log(`loveRecords=`, loveRecords)
     loveRecords.forEach(element => {
       element.timeStr = moment(element.blockTime).format('YYYY-MM-DD HH:mm:ss')
@@ -24,7 +25,10 @@ class HomeController extends Controller {
         element.letter = matcher[3]
       }
     });
-    const startCursor = loveRecords.length && loveRecords[loveRecords.length - 1].rankAmount
+    let startCursor = 0
+    if (loveRecords.length >= BatchSize) {
+      startCursor = loveRecords[loveRecords.length - 1].rankAmount
+    }
     const theme = ctx.app.theme || {
       header_bg_img: '/public/img/header_bg_1.jpg',
       subnameColor:   '#636363',
