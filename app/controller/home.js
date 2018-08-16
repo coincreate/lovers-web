@@ -35,7 +35,11 @@ class HomeController extends Controller {
   async about() {
     const ctx = this.ctx;
     // this.ctx.body = 'hi, egg';
-    await ctx.render('about.tpl', {});
+    const theme = ctx.app.theme || {
+      header_bg_img: '/public/img/header_bg_1.jpg',
+      subnameColor:   '#636363',
+    }
+    await ctx.render('about.tpl', {theme});
   }
 
   async getItem() {
@@ -55,7 +59,11 @@ class HomeController extends Controller {
   async disclaimer() {
     const ctx = this.ctx;
     // this.ctx.body = 'hi, egg';
-    await ctx.render('disclaimer.tpl', {});
+    const theme = ctx.app.theme || {
+      header_bg_img: '/public/img/header_bg_1.jpg',
+      subnameColor:   '#636363',
+    }
+    await ctx.render('disclaimer.tpl', {theme});
   }
 }
 
