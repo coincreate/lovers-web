@@ -15,6 +15,14 @@ class HomeController extends Controller {
     // console.log(`loveRecords=`, loveRecords)
     loveRecords.forEach(element => {
       element.timeStr = moment(element.blockTime).format('YYYY-MM-DD HH:mm:ss')
+      const letter = element.letter
+      const letterReg = /(.*)@(.*)[:|：](.*)/
+      const matcher = letterReg.exec(letter)
+      if (matcher && matcher.length >= 4) {
+        element.senderName = matcher[1]
+        element.receiverName = matcher[2]
+        element.letter = matcher[3]
+      }
     });
     const startCursor = loveRecords.length && loveRecords[loveRecords.length - 1].rankAmount
     await ctx.render('home/index.tpl', {loveRecords, startCursor});

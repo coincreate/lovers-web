@@ -18,7 +18,14 @@ class ApiController extends Controller {
     
     const newRecords = loveRecords.map(element => {
       element.timeStr = moment(element.blockTime).format('YYYY-MM-DD HH:mm:ss')
-      console.log(`loveRecord:`, element)
+      const letter = element.letter
+      const letterReg = /(.*)@(.*)[:|：](.*)/
+      const matcher = letterReg.exec(letter)
+      if (matcher && matcher.length >= 4) {
+        element.senderName = matcher[1]
+        element.receiverName = matcher[2]
+        element.letter = matcher[3]
+      }
       return element
     });
     if (!newRecords.length) {
