@@ -2,12 +2,12 @@ const LoverSchema = require('../db/lover')
 const moment = require('moment')
 
 const   rpcService = [
-  // 'api.eosnewyork.io',
-  // 'api.eosn.io',
-  // 'eos.greymass.com',
-  // 'mainnet.genereos.io',
+  'api.eosnewyork.io',
+  'api.eosn.io',
+  'eos.greymass.com',
+  'mainnet.genereos.io',
   //---test--
-  'junglenodes.eosmetal.io',
+  // 'junglenodes.eosmetal.io',
 ];
 
 let currentIndex = 0;

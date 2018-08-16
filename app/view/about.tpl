@@ -100,10 +100,10 @@
 
 <div class="container">
     <h2>Contacts</h2>
-    <p>
-        <ul>
-            <li><strong>微信:</strong> </li>
-        </ul>
+    <p><p>
+    <strong>微信:</strong> 扫下面的二维码加好友，回复“三生三世”，即可被邀进群反馈问题。<br><br>
+                <img src='/public/img/contact_card_wechat.jpg' style="height:120px">
+        
     </p>
 
     

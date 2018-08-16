@@ -25,7 +25,11 @@ class HomeController extends Controller {
       }
     });
     const startCursor = loveRecords.length && loveRecords[loveRecords.length - 1].rankAmount
-    await ctx.render('home/index.tpl', {loveRecords, startCursor});
+    const theme = ctx.app.theme || {
+      header_bg_img: '/public/img/header_bg_1.jpg',
+      subnameColor:   '#636363',
+    }
+    await ctx.render('home/index.tpl', {loveRecords, startCursor, theme});
   }
 
   async about() {
