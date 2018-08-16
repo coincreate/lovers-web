@@ -5,7 +5,7 @@ const Schema = mongoose.Schema;
 
 const LoverSchema = new Schema({
   id: {type: Number, unique:true},
-  rankAmount:{type:Number, unique:true},
+  rankAmount: {type:Number, unique:true},
   amount: Number,
   sender: String,
   txHash: String,

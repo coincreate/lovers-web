@@ -27,7 +27,7 @@ module.exports = {
       $group:{_id: "$item", maxId: { $max: "$id" }}
     }]).exec()
     
-    const latestId = latestIdInfo && latestIdInfo.length && latestIdInfo[0].maxId || -1
+    const latestId = latestIdInfo && latestIdInfo.length && latestIdInfo[0].maxId
     const lowerBound = latestId + 1
     console.log(`lateIdInfo=`, latestIdInfo, ';lowerBound=', lowerBound)
     const dns = rpcService[currentIndex]

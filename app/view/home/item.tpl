@@ -254,13 +254,13 @@
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                         <h4 class="modal-title">Like</h4>
                     </div>
-                    <div class="modal-body">
+                    {# <div class="modal-body">
                         <p>Like this message sending any amount (eg. 0.1 m<i class="fa fa-bitcoin"></i>) to the following address</p>
                         <div class="text-center">
                             <a href="bitcoin:18MUGh4Geu6sbMwhCazCuzumUf67ZK6Szk?amount=0.0001"><img src="https://chart.googleapis.com/chart?chs=250x250&cht=qr&chl=18MUGh4Geu6sbMwhCazCuzumUf67ZK6Szk"></a>
                             <p>18MUGh4Geu6sbMwhCazCuzumUf67ZK6Szk</p>
                         </div>
-                    </div>
+                    </div> #}
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                     </div>
