@@ -45,7 +45,11 @@ class HomeController extends Controller {
     const model = LoverSchema.model()
     const doc = await model.findOne({id}).lean().exec();
     const item = {...doc, timeStr: moment(doc.blockTime).format('YYYY-MM-DD HH:mm:ss')}
-    await ctx.render('home/item.tpl', {item});
+    const theme = ctx.app.theme || {
+      header_bg_img: '/public/img/header_bg_1.jpg',
+      subnameColor:   '#636363',
+    }
+    await ctx.render('home/item.tpl', {item, theme});
   }
 
   async disclaimer() {
