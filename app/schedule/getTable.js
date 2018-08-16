@@ -73,6 +73,9 @@ module.exports = {
         // return
       }
       let blockTime = txResp.data && txResp.data.block_time || ''
+      if (blockTime && blockTime.indexOf('T') > 0 && !blockTime.endsWith('Z')) {
+        blockTime += 'Z'
+      } 
       record.blockTime = blockTime && new Date(blockTime) || new Date()
       record.rankAmount = record.amount * (1<<30) + record.id
       const lover = new model(record);
