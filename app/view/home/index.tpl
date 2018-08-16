@@ -111,7 +111,8 @@
             <i class="fa fa-pencil"></i>&nbsp;Write
         </a> #}
     </div>
-    <div class="col-xs-6">
+
+    {# <div class="col-xs-6">
         <form action="/search" method="get">
             <div class="input-group">
                 <input type="text" class="form-control input-lg" placeholder="Search" name="q" size="25" required  />
@@ -123,7 +124,8 @@
 
             </div>
         </form>
-    </div>
+    </div> #}
+
 </div>
 <br>
 
